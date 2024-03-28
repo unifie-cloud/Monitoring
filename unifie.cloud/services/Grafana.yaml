@@ -1782,15 +1782,22 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: volumePermissions.image.tag
-    varValueType: string
-    varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 11-debian-11-r123
-    refToSpecVar: ''
-    UIVarTitle: volumePermissions.image.tag
+  - varName: datasources.secretDefinition.apiVersion
     varApplyMethod: method_replace
-    UIVarValidationRules: []
-    UIVarInputType: string
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: ''
+    UIVarInputType: ''
+  - varName: datasources.secretDefinition.datasources
+    varApplyMethod: method_replace
+    varValueType: array
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: Datasources
+    UIVarInputType: yaml
 helmRepositoryName: bitnami
 helmRepositoryURL: https://charts.bitnami.com/bitnami
 helmRepositoryChartName: grafana
