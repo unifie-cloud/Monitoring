@@ -36,7 +36,7 @@ rules:
     UIVarTitle: Admin password
     varApplyMethod: method_replace
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: password
   - varName: admin.user
     varValueType: string
     varValueSrcType: src_deployment_ui
@@ -1794,10 +1794,11 @@ rules:
     varApplyMethod: method_replace
     varValueType: array
     varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: ''
+    hardcodedDefaultValue: >-
+      [{"name":"Prometheus","type":"prometheus","url":"http://release-name-prometheus-server:9090","access":"proxy","isDefault":true}]
     refToSpecVar: ''
     UIVarTitle: Datasources
-    UIVarInputType: yaml
+    UIVarInputType: json
 helmRepositoryName: bitnami
 helmRepositoryURL: https://charts.bitnami.com/bitnami
 helmRepositoryChartName: grafana
