@@ -1,0 +1,1817 @@
+name: Grafana
+rules:
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: admin
+    hardcodedDefaultValue: >-
+      {"user":"admin","password":"","existingSecret":"","existingSecretPasswordKey":"password"}
+    refToSpecVar: ''
+    UIVarTitle: admin
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: admin.existingSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: admin.existingSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: admin.existingSecretPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: password
+    refToSpecVar: ''
+    UIVarTitle: admin.existingSecretPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: admin.password
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: password
+    refToSpecVar: ''
+    UIVarTitle: Admin password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: admin.user
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: admin
+    refToSpecVar: ''
+    UIVarTitle: Admin user
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: clusterDomain
+    hardcodedDefaultValue: cluster.local
+    refToSpecVar: ''
+    UIVarTitle: clusterDomain
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: commonAnnotations
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: commonAnnotations
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: commonLabels
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: commonLabels
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: config
+    hardcodedDefaultValue: '{"useGrafanaIniFile":false,"grafanaIniConfigMap":"","grafanaIniSecret":""}'
+    refToSpecVar: ''
+    UIVarTitle: config
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: config.grafanaIniConfigMap
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: config.grafanaIniConfigMap
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: config.grafanaIniSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: config.grafanaIniSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: config.useGrafanaIniFile
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: config.useGrafanaIniFile
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: array
+    varApplyMethod: method_replace
+    varName: dashboardsConfigMaps
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: dashboardsConfigMaps
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: dashboardsProvider
+    hardcodedDefaultValue: '{"enabled":false,"configMapName":""}'
+    refToSpecVar: ''
+    UIVarTitle: dashboardsProvider
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: dashboardsProvider.configMapName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: dashboardsProvider.configMapName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: dashboardsProvider.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: dashboardsProvider.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: datasources
+    hardcodedDefaultValue: '{"secretName":"","secretDefinition":{}}'
+    refToSpecVar: ''
+    UIVarTitle: datasources
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: datasources.secretName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: datasources.secretName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: diagnosticMode
+    hardcodedDefaultValue: '{"enabled":false,"command":["sleep"],"args":["infinity"]}'
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode.args.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: infinity
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode.args.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode.command.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: sleep
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode.command.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: array
+    varApplyMethod: method_replace
+    varName: extraDeploy
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: extraDeploy
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: fullnameOverride
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: fullnameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: global
+    hardcodedDefaultValue: '{"imageRegistry":"","imagePullSecrets":[],"storageClass":""}'
+    refToSpecVar: ''
+    UIVarTitle: global
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.imageRegistry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.imageRegistry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.storageClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.storageClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: grafana
+    hardcodedDefaultValue: >-
+      {"replicaCount":1,"updateStrategy":{"type":"RollingUpdate"},"hostAliases":[],"schedulerName":"","terminationGracePeriodSeconds":"","priorityClassName":"","podLabels":{},"podAnnotations":{},"podAffinityPreset":"","podAntiAffinityPreset":"soft","containerPorts":{"grafana":3000},"nodeAffinityPreset":{"type":"","key":"","values":[]},"affinity":{},"nodeSelector":{},"tolerations":[],"topologySpreadConstraints":[],"podSecurityContext":{"enabled":true,"runAsUser":1001,"fsGroup":1001,"runAsNonRoot":true},"containerSecurityContext":{"enabled":true,"runAsUser":1001},"resources":{"limits":{},"requests":{}},"livenessProbe":{"enabled":true,"path":"/api/health","scheme":"HTTP","initialDelaySeconds":120,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"readinessProbe":{"enabled":true,"path":"/api/health","scheme":"HTTP","initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"startupProbe":{"enabled":false,"path":"/api/health","scheme":"HTTP","initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"customLivenessProbe":{},"customReadinessProbe":{},"customStartupProbe":{},"lifecycleHooks":{},"sidecars":[],"initContainers":[],"extraVolumes":[],"extraVolumeMounts":[],"extraEnvVarsCM":"","extraEnvVarsSecret":"","extraEnvVars":[],"extraConfigmaps":[],"command":[],"args":[]}
+    refToSpecVar: ''
+    UIVarTitle: grafana
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.containerPorts.grafana
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '3000'
+    refToSpecVar: ''
+    UIVarTitle: grafana.containerPorts.grafana
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: grafana.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: grafana.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.extraEnvVarsCM
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.extraEnvVarsCM
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.extraEnvVarsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.extraEnvVarsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '120'
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /api/health
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.scheme
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: HTTP
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.scheme
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.livenessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: grafana.livenessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.nodeAffinityPreset.key
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.nodeAffinityPreset.key
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.nodeAffinityPreset.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.nodeAffinityPreset.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.podAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.podAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.podAntiAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: soft
+    refToSpecVar: ''
+    UIVarTitle: grafana.podAntiAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.podSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: grafana.podSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: grafana.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.podSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: grafana.podSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.podSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: grafana.podSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.priorityClassName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.priorityClassName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /api/health
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.scheme
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: HTTP
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.scheme
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.readinessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: grafana.readinessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: grafana.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.schedulerName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.schedulerName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /api/health
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.scheme
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: HTTP
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.scheme
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.startupProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: grafana.startupProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.terminationGracePeriodSeconds
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: grafana.terminationGracePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: grafana.updateStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RollingUpdate
+    refToSpecVar: ''
+    UIVarTitle: grafana.updateStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: image
+    hardcodedDefaultValue: >-
+      {"registry":"docker.io","repository":"bitnami/grafana","tag":"9.5.3-debian-11-r0","digest":"","pullPolicy":"IfNotPresent","pullSecrets":[]}
+    refToSpecVar: ''
+    UIVarTitle: image
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.registry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: docker.io
+    refToSpecVar: ''
+    UIVarTitle: image.registry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: bitnami/grafana
+    refToSpecVar: ''
+    UIVarTitle: image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 9.5.3-debian-11-r0
+    refToSpecVar: ''
+    UIVarTitle: image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: imageRenderer
+    hardcodedDefaultValue: >-
+      {"enabled":false,"image":{"registry":"docker.io","repository":"bitnami/grafana-image-renderer","tag":"3.7.1-debian-11-r7","digest":"","pullPolicy":"IfNotPresent","pullSecrets":[]},"replicaCount":1,"updateStrategy":{"type":"RollingUpdate"},"podAnnotations":{},"podLabels":{},"nodeSelector":{},"hostAliases":[],"tolerations":[],"priorityClassName":"","schedulerName":"","terminationGracePeriodSeconds":"","topologySpreadConstraints":[],"podAffinityPreset":"","podAntiAffinityPreset":"soft","nodeAffinityPreset":{"type":"","key":"","values":[]},"extraEnvVars":[],"affinity":{},"resources":{"limits":{},"requests":{}},"podSecurityContext":{"enabled":true,"runAsUser":1001,"fsGroup":1001,"runAsNonRoot":true},"containerSecurityContext":{"enabled":true,"runAsUser":1001},"service":{"type":"ClusterIP","clusterIP":"","ports":{"imageRenderer":8080},"nodePorts":{"grafana":""},"loadBalancerIP":"","loadBalancerSourceRanges":[],"annotations":{},"externalTrafficPolicy":"Cluster","extraPorts":[],"sessionAffinity":"None","sessionAffinityConfig":{}},"metrics":{"enabled":false,"annotations":{"prometheus.io/scrape":"true","prometheus.io/port":"8080","prometheus.io/path":"/metrics"},"serviceMonitor":{"enabled":false,"namespace":"","jobLabel":"","interval":"","scrapeTimeout":"","relabelings":[],"metricRelabelings":[],"selector":{},"labels":{},"honorLabels":false},"prometheusRule":{"enabled":false,"namespace":"","additionalLabels":{},"rules":[]}},"initContainers":[],"sidecars":[],"extraEnvVarsCM":"","extraEnvVarsSecret":"","extraVolumes":[],"extraVolumeMounts":[],"command":[],"args":[],"lifecycleHooks":{}}
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.extraEnvVarsCM
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.extraEnvVarsCM
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.extraEnvVarsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.extraEnvVarsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.image.registry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: docker.io
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.image.registry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: bitnami/grafana-image-renderer
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 3.7.1-debian-11-r7
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.prometheusRule.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.prometheusRule.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.prometheusRule.namespace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.prometheusRule.namespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.serviceMonitor.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.serviceMonitor.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.serviceMonitor.honorLabels
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.serviceMonitor.honorLabels
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.serviceMonitor.interval
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.serviceMonitor.interval
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.serviceMonitor.jobLabel
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.serviceMonitor.jobLabel
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.serviceMonitor.namespace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.serviceMonitor.namespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.metrics.serviceMonitor.scrapeTimeout
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.metrics.serviceMonitor.scrapeTimeout
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.nodeAffinityPreset.key
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.nodeAffinityPreset.key
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.nodeAffinityPreset.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.nodeAffinityPreset.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.podAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.podAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.podAntiAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: soft
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.podAntiAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.podSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.podSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.podSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.podSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.podSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.podSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.priorityClassName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.priorityClassName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.schedulerName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.schedulerName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.clusterIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.clusterIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.externalTrafficPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Cluster
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.externalTrafficPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.loadBalancerIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.loadBalancerIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.nodePorts.grafana
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.nodePorts.grafana
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.ports.imageRenderer
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '8080'
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.ports.imageRenderer
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.sessionAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: None
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.sessionAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.terminationGracePeriodSeconds
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.terminationGracePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imageRenderer.updateStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RollingUpdate
+    refToSpecVar: ''
+    UIVarTitle: imageRenderer.updateStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: ingress
+    hardcodedDefaultValue: >-
+      {"enabled":false,"pathType":"ImplementationSpecific","apiVersion":"","hostname":"grafana.local","path":"/","annotations":{},"tls":false,"extraHosts":[],"extraPaths":[],"extraTls":[],"secrets":[],"selfSigned":false,"ingressClassName":"","extraRules":[]}
+    refToSpecVar: ''
+    UIVarTitle: ingress
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.apiVersion
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ingress.apiVersion
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ingress.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.hostname
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: grafana.local
+    refToSpecVar: ''
+    UIVarTitle: ingress.hostname
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.ingressClassName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ingress.ingressClassName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /
+    refToSpecVar: ''
+    UIVarTitle: ingress.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.pathType
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ImplementationSpecific
+    refToSpecVar: ''
+    UIVarTitle: ingress.pathType
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.selfSigned
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ingress.selfSigned
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.tls
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ingress.tls
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: kubeVersion
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: kubeVersion
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: ldap
+    hardcodedDefaultValue: >-
+      {"enabled":false,"allowSignUp":false,"configuration":"","configMapName":"","secretName":"","uri":"","binddn":"","bindpw":"","basedn":"","searchAttribute":"uid","searchFilter":"","extraConfiguration":"","tls":{"enabled":false,"startTls":false,"skipVerify":false,"certificatesMountPath":"/opt/bitnami/grafana/conf/ldap/","certificatesSecret":"","CAFilename":"","certFilename":"","certKeyFilename":""}}
+    refToSpecVar: ''
+    UIVarTitle: ldap
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.allowSignUp
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.allowSignUp
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.basedn
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.basedn
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.binddn
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.binddn
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.bindpw
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.bindpw
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.configMapName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.configMapName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.configuration
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.configuration
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.extraConfiguration
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.extraConfiguration
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.searchAttribute
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: uid
+    refToSpecVar: ''
+    UIVarTitle: ldap.searchAttribute
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.searchFilter
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.searchFilter
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.secretName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.secretName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.CAFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.CAFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.certFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.certFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.certificatesMountPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /opt/bitnami/grafana/conf/ldap/
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.certificatesMountPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.certificatesSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.certificatesSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.certKeyFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.certKeyFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.skipVerify
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.skipVerify
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.startTls
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.startTls
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.uri
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.uri
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: metrics
+    hardcodedDefaultValue: >-
+      {"enabled":false,"service":{"annotations":{"prometheus.io/scrape":"true","prometheus.io/port":"3000","prometheus.io/path":"/metrics"}},"serviceMonitor":{"enabled":false,"namespace":"","interval":"","scrapeTimeout":"","selector":{},"relabelings":[],"metricRelabelings":[],"honorLabels":false,"labels":{},"jobLabel":""},"prometheusRule":{"enabled":false,"namespace":"","additionalLabels":{},"rules":[]}}
+    refToSpecVar: ''
+    UIVarTitle: metrics
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.prometheusRule.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.prometheusRule.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.prometheusRule.namespace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.prometheusRule.namespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.honorLabels
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.honorLabels
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.interval
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.interval
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.jobLabel
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.jobLabel
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.namespace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.namespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.scrapeTimeout
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.scrapeTimeout
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: nameOverride
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: nameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: notifiers
+    hardcodedDefaultValue: '{"configMapName":""}'
+    refToSpecVar: ''
+    UIVarTitle: notifiers
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: notifiers.configMapName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: notifiers.configMapName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: persistence
+    hardcodedDefaultValue: >-
+      {"enabled":true,"storageClass":"","annotations":{},"existingClaim":"","accessMode":"ReadWriteOnce","accessModes":[],"size":"10Gi"}
+    refToSpecVar: ''
+    UIVarTitle: persistence
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules:
+      - not empty
+    UIVarInputType: text
+    varName: persistence.accessMode
+    hardcodedDefaultValue: ReadWriteMany
+    UIVarTitle: Storage access mode
+  - varName: persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: persistence.existingClaim
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: persistence.existingClaim
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 10Gi
+    refToSpecVar: ''
+    UIVarTitle: persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    hardcodedDefaultValue: efs-reclaim-delete
+    varName: persistence.storageClass
+    UIVarTitle: Storage class
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: plugins
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: plugins
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: service
+    hardcodedDefaultValue: >-
+      {"type":"ClusterIP","clusterIP":"","ports":{"grafana":3000},"nodePorts":{"grafana":""},"loadBalancerIP":"","loadBalancerSourceRanges":[],"annotations":{},"externalTrafficPolicy":"Cluster","extraPorts":[],"sessionAffinity":"None","sessionAffinityConfig":{}}
+    refToSpecVar: ''
+    UIVarTitle: service
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.clusterIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: service.clusterIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.externalTrafficPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Cluster
+    refToSpecVar: ''
+    UIVarTitle: service.externalTrafficPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.loadBalancerIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: service.loadBalancerIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.nodePorts.grafana
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: service.nodePorts.grafana
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.ports.grafana
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '3000'
+    refToSpecVar: ''
+    UIVarTitle: service.ports.grafana
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.sessionAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: None
+    refToSpecVar: ''
+    UIVarTitle: service.sessionAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: serviceAccount
+    hardcodedDefaultValue: >-
+      {"create":true,"name":"","annotations":{},"automountServiceAccountToken":false}
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.automountServiceAccountToken
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.automountServiceAccountToken
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: smtp
+    hardcodedDefaultValue: >-
+      {"enabled":false,"user":"user","password":"password","host":"","fromAddress":"","fromName":"","skipVerify":"false","existingSecret":"","existingSecretUserKey":"user","existingSecretPasswordKey":"password"}
+    refToSpecVar: ''
+    UIVarTitle: smtp
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: smtp.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.existingSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: smtp.existingSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.existingSecretPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: password
+    refToSpecVar: ''
+    UIVarTitle: smtp.existingSecretPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.existingSecretUserKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: user
+    refToSpecVar: ''
+    UIVarTitle: smtp.existingSecretUserKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.fromAddress
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: smtp.fromAddress
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.fromName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: smtp.fromName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.host
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: smtp.host
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.password
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: password
+    refToSpecVar: ''
+    UIVarTitle: smtp.password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.skipVerify
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: smtp.skipVerify
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: smtp.user
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: user
+    refToSpecVar: ''
+    UIVarTitle: smtp.user
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: volumePermissions
+    hardcodedDefaultValue: >-
+      {"enabled":false,"image":{"registry":"docker.io","repository":"bitnami/bitnami-shell","tag":"11-debian-11-r123","digest":"","pullPolicy":"IfNotPresent","pullSecrets":[]},"resources":{"limits":{},"requests":{}},"containerSecurityContext":{"runAsUser":0}}
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '0'
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.registry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: docker.io
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.registry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: bitnami/bitnami-shell
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 11-debian-11-r123
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+helmRepositoryName: bitnami
+helmRepositoryURL: https://charts.bitnami.com/bitnami
+helmRepositoryChartName: grafana
+helmChartName: grafana
+helmRepositoryVersion: 8.4.5
+postProcessingRules:
+  - path: '["spec"]["strategy"]'
+    action: remove
+    mainKind: Deployment
+    mainMetadataName: release-name-grafana
+routes:
+  - host: '{{ .deployment.domain }}'
+    http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              port:
+                number: 3000
+              name: release-name-grafana
+UIshowRequestsConfig: false
+enabledByDefault: true
+ServiceSrcType: Yes-HelmChart
