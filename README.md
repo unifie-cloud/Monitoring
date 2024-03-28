@@ -1,3 +1,3 @@
-# prometheus
+# Prometheus
 
 Prometheus integration
