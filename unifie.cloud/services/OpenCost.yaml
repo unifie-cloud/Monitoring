@@ -1,0 +1,41 @@
+name: OpenCost
+rules:
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules:
+      - not empty
+    UIVarInputType: password
+    varName: AWS_ACCESS_KEY_ID
+    UIVarTitle: AWS_ACCESS_KEY_ID
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules:
+      - not empty
+    UIVarInputType: password
+    varName: AWS_SECRET_ACCESS_KEY
+    UIVarTitle: AWS_SECRET_ACCESS_KEY
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: CLUSTER_ID
+    UIVarTitle: CLUSTER_ID
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: OpenCost_ui_domain
+    UIVarTitle: 'Domain for OpenCost UI '
+ServiceSrcType: No-HelmChart
+Ci_CD: Yes-DocekrImage
+routes:
+  - host: '{{ .deployment.domain }}'
+    http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              port:
+                number: 9090
+              name: opencost

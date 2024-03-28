@@ -1,0 +1,1127 @@
+name: prometheus
+gitURL: https://github.com/prometheus-community/helm-charts
+helmChartName: 'prometheus '
+UIshowRequestsConfig: true
+rules:
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: alertmanager
+    hardcodedDefaultValue: >-
+      {"enabled":true,"persistence":{"size":"2Gi"},"podSecurityContext":{"runAsUser":65534,"runAsNonRoot":true,"runAsGroup":65534,"fsGroup":65534}}
+    refToSpecVar: ''
+    UIVarTitle: alertmanager
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: boolean
+    UIVarValidationRules: []
+    UIVarInputType: boolean
+    varName: alertmanager.enabled
+    hardcodedDefaultValue: 'false'
+    UIVarTitle: Install alertmanager
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: alertmanager.persistence.size
+    hardcodedDefaultValue: 2Gi
+    UIVarTitle: alertmanager disk size
+  - varName: alertmanager.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '65534'
+    refToSpecVar: ''
+    UIVarTitle: alertmanager.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: alertmanager.podSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '65534'
+    refToSpecVar: ''
+    UIVarTitle: alertmanager.podSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: alertmanager.podSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: alertmanager.podSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: alertmanager.podSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '65534'
+    refToSpecVar: ''
+    UIVarTitle: alertmanager.podSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: alertRelabelConfigs
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: alertRelabelConfigs
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: commonMetaLabels
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: commonMetaLabels
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: configmapReload
+    hardcodedDefaultValue: >-
+      {"prometheus":{"enabled":true,"name":"configmap-reload","image":{"repository":"quay.io/prometheus-operator/prometheus-config-reloader","tag":"v0.63.0","digest":"","pullPolicy":"IfNotPresent"},"extraArgs":{},"extraVolumeDirs":[],"extraConfigmapMounts":[],"containerSecurityContext":{},"resources":{}}}
+    refToSpecVar: ''
+    UIVarTitle: configmapReload
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.prometheus.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.prometheus.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.prometheus.image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.prometheus.image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.prometheus.image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.prometheus.image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.prometheus.image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: quay.io/prometheus-operator/prometheus-config-reloader
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.prometheus.image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.prometheus.image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: v0.72.0
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.prometheus.image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.prometheus.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: configmap-reload
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.prometheus.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: configmapReload.reloadUrl
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: configmapReload.reloadUrl
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: array
+    varApplyMethod: method_replace
+    varName: extraManifests
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: extraManifests
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: extraScrapeConfigs
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: extraScrapeConfigs
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: string
+    varName: forceNamespace
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: forceNamespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: array
+    varApplyMethod: method_replace
+    varName: imagePullSecrets
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: imagePullSecrets
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: kube-state-metrics
+    hardcodedDefaultValue: '{"enabled":true}'
+    refToSpecVar: ''
+    UIVarTitle: kube-state-metrics
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: boolean
+    UIVarValidationRules: []
+    UIVarInputType: boolean
+    varName: kube-state-metrics.enabled
+    hardcodedDefaultValue: 'true'
+    UIVarTitle: kube-state-metrics
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: networkPolicy
+    hardcodedDefaultValue: '{"enabled":false}'
+    refToSpecVar: ''
+    UIVarTitle: networkPolicy
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: networkPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: networkPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: podSecurityPolicy
+    hardcodedDefaultValue: '{"enabled":false}'
+    refToSpecVar: ''
+    UIVarTitle: podSecurityPolicy
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: podSecurityPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: podSecurityPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: prometheus_domain
+    UIVarTitle: Prometheus domain
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: prometheus-node-exporter
+    hardcodedDefaultValue: >-
+      {"enabled":true,"rbac":{"pspEnabled":false},"containerSecurityContext":{"allowPrivilegeEscalation":false}}
+    refToSpecVar: ''
+    UIVarTitle: prometheus-node-exporter
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: prometheus-node-exporter.containerSecurityContext.allowPrivilegeEscalation
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: prometheus-node-exporter.containerSecurityContext.allowPrivilegeEscalation
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: boolean
+    UIVarValidationRules: []
+    UIVarInputType: boolean
+    varName: prometheus-node-exporter.enabled
+    hardcodedDefaultValue: 'true'
+    UIVarTitle: node-exporter
+  - varName: prometheus-node-exporter.rbac.pspEnabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: prometheus-node-exporter.rbac.pspEnabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: prometheus-pushgateway
+    hardcodedDefaultValue: >-
+      {"enabled":true,"serviceAnnotations":{"prometheus.io/probe":"pushgateway"}}
+    refToSpecVar: ''
+    UIVarTitle: prometheus-pushgateway
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: boolean
+    UIVarValidationRules: []
+    UIVarInputType: boolean
+    varName: prometheus-pushgateway.enabled
+    hardcodedDefaultValue: 'false'
+    UIVarTitle: pushgateway
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: rbac
+    hardcodedDefaultValue: '{"create":true}'
+    refToSpecVar: ''
+    UIVarTitle: rbac
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: rbac.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: rbac.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: ruleFiles
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: ruleFiles
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: scrapeConfigFiles
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: scrapeConfigFiles
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: server
+    hardcodedDefaultValue: >-
+      {"name":"server","sidecarContainers":{},"sidecarTemplateValues":{},"image":{"repository":"quay.io/prometheus/prometheus","tag":"","digest":"","pullPolicy":"IfNotPresent"},"priorityClassName":"","enableServiceLinks":true,"prefixURL":"","baseURL":"","env":[],"defaultFlagsOverride":[],"extraFlags":["web.enable-lifecycle"],"configPath":"/etc/config/prometheus.yml","storagePath":"","global":{"scrape_interval":"1m","scrape_timeout":"10s","evaluation_interval":"1m"},"remoteWrite":[],"remoteRead":[],"tsdb":{},"exemplars":{},"probeHeaders":[],"extraArgs":{},"extraInitContainers":[],"extraVolumeMounts":[],"extraVolumes":[],"extraHostPathMounts":[],"extraConfigmapMounts":[],"extraSecretMounts":[],"configMapOverrideName":"","extraConfigmapLabels":{},"ingress":{"enabled":false,"annotations":{},"extraLabels":{},"hosts":[],"path":"/","pathType":"Prefix","extraPaths":[],"tls":[]},"strategy":{"type":"Recreate"},"hostAliases":[],"tolerations":[],"nodeSelector":{},"affinity":{},"topologySpreadConstraints":[],"podDisruptionBudget":{"enabled":false,"maxUnavailable":1},"persistentVolume":{"enabled":true,"accessModes":["ReadWriteOnce"],"labels":{},"annotations":{},"existingClaim":"","mountPath":"/data","size":"8Gi","subPath":""},"emptyDir":{"sizeLimit":""},"podAnnotations":{},"podLabels":{},"alertmanagers":[],"podSecurityPolicy":{"annotations":{}},"replicaCount":1,"deploymentAnnotations":{},"statefulSet":{"enabled":false,"annotations":{},"labels":{},"podManagementPolicy":"OrderedReady","headless":{"annotations":{},"labels":{},"servicePort":80,"gRPC":{"enabled":false,"servicePort":10901}}},"tcpSocketProbeEnabled":false,"probeScheme":"HTTP","readinessProbeInitialDelay":30,"readinessProbePeriodSeconds":5,"readinessProbeTimeout":4,"readinessProbeFailureThreshold":3,"readinessProbeSuccessThreshold":1,"livenessProbeInitialDelay":30,"livenessProbePeriodSeconds":15,"livenessProbeTimeout":10,"livenessProbeFailureThreshold":3,"livenessProbeSuccessThreshold":1,"startupProbe":{"enabled":false,"periodSeconds":5,"failureThreshold":30,"timeoutSeconds":10},"resources":{},"hostNetwork":false,"dnsPolicy":"ClusterFirst","verticalAutoscaler":{"enabled":false},"dnsConfig":{},"securityContext":{"runAsUser":65534,"runAsNonRoot":true,"runAsGroup":65534,"fsGroup":65534},"containerSecurityContext":{},"service":{"enabled":true,"annotations":{},"labels":{},"clusterIP":"","externalIPs":[],"loadBalancerIP":"","loadBalancerSourceRanges":[],"servicePort":80,"sessionAffinity":"None","type":"ClusterIP","gRPC":{"enabled":false,"servicePort":10901},"statefulsetReplica":{"enabled":false,"replica":0}},"terminationGracePeriodSeconds":300,"retention":"15d"}
+    refToSpecVar: ''
+    UIVarTitle: server
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.baseURL
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.baseURL
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.clusterRoleNameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.clusterRoleNameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.configMapOverrideName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.configMapOverrideName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.configPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /etc/config/prometheus.yml
+    refToSpecVar: ''
+    UIVarTitle: server.configPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.dnsPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterFirst
+    refToSpecVar: ''
+    UIVarTitle: server.dnsPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.emptyDir.sizeLimit
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.emptyDir.sizeLimit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.enableServiceLinks
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: server.enableServiceLinks
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.extraFlags.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: web.enable-lifecycle
+    refToSpecVar: ''
+    UIVarTitle: server.extraFlags.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: server.global.evaluation_interval
+    UIVarTitle: How frequently to evaluate rules
+    hardcodedDefaultValue: 15s
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: server.global.scrape_interval
+    hardcodedDefaultValue: 15s
+    UIVarTitle: How frequently to scrape targets by default (scrape_interval)
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: server.global.scrape_timeout
+    hardcodedDefaultValue: 10s
+    UIVarTitle: How long until a scrape request times out
+  - varName: server.hostNetwork
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.hostNetwork
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: server.image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: quay.io/prometheus/prometheus
+    refToSpecVar: ''
+    UIVarTitle: server.image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.ingress.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.ingress.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.ingress.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /
+    refToSpecVar: ''
+    UIVarTitle: server.ingress.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.ingress.pathType
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Prefix
+    refToSpecVar: ''
+    UIVarTitle: server.ingress.pathType
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.livenessProbeFailureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '3'
+    refToSpecVar: ''
+    UIVarTitle: server.livenessProbeFailureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.livenessProbeInitialDelay
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: server.livenessProbeInitialDelay
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.livenessProbePeriodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '15'
+    refToSpecVar: ''
+    UIVarTitle: server.livenessProbePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.livenessProbeSuccessThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: server.livenessProbeSuccessThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.livenessProbeTimeout
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: server.livenessProbeTimeout
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: server
+    refToSpecVar: ''
+    UIVarTitle: server.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.persistentVolume.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: server.persistentVolume.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: boolean
+    UIVarValidationRules: []
+    UIVarInputType: boolean
+    varName: server.persistentVolume.enabled
+    hardcodedDefaultValue: 'true'
+    UIVarTitle: Use a Persistent Volume Claim
+  - varName: server.persistentVolume.existingClaim
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.persistentVolume.existingClaim
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_var
+    varValueType: string
+    varName: server.persistentVolume.labels['dp-id']
+    hardcodedDefaultValue: 'no'
+    refToSpecVar: deployment.id
+  - varName: server.persistentVolume.mountPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /data
+    refToSpecVar: ''
+    UIVarTitle: server.persistentVolume.mountPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: server.persistentVolume.size
+    hardcodedDefaultValue: 8Gi
+    UIVarTitle: Persistent Volume size
+  - varName: server.persistentVolume.statefulSetNameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.persistentVolume.statefulSetNameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.persistentVolume.subPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.persistentVolume.subPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.podAntiAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.podAntiAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.podAntiAffinityTopologyKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: kubernetes.io/hostname
+    refToSpecVar: ''
+    UIVarTitle: server.podAntiAffinityTopologyKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.podDisruptionBudget.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.podDisruptionBudget.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.podDisruptionBudget.maxUnavailable
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: server.podDisruptionBudget.maxUnavailable
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: server.podLabels
+    hardcodedDefaultValue: '{"ui-name":"Prometheus"}'
+  - varName: server.portName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.portName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.prefixURL
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.prefixURL
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.priorityClassName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.priorityClassName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.probeScheme
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: HTTP
+    refToSpecVar: ''
+    UIVarTitle: server.probeScheme
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.readinessProbeFailureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '3'
+    refToSpecVar: ''
+    UIVarTitle: server.readinessProbeFailureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.readinessProbeInitialDelay
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: server.readinessProbeInitialDelay
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.readinessProbePeriodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: server.readinessProbePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.readinessProbeSuccessThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: server.readinessProbeSuccessThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.readinessProbeTimeout
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '4'
+    refToSpecVar: ''
+    UIVarTitle: server.readinessProbeTimeout
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.releaseNamespace
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.releaseNamespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: server.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_deployment_var
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: server.resources
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: service.resources
+  - varValueSrcType: src_deployment_ui
+    varValueType: string
+    UIVarValidationRules: []
+    UIVarInputType: text
+    varName: server.retention
+    hardcodedDefaultValue: 8h
+    UIVarTitle: Retention period
+  - varName: server.retentionSize
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.retentionSize
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.revisionHistoryLimit
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: server.revisionHistoryLimit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.securityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '65534'
+    refToSpecVar: ''
+    UIVarTitle: server.securityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.securityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '65534'
+    refToSpecVar: ''
+    UIVarTitle: server.securityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.securityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: server.securityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.securityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '65534'
+    refToSpecVar: ''
+    UIVarTitle: server.securityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.clusterIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.service.clusterIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: server.service.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.gRPC.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.service.gRPC.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.gRPC.servicePort
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10901'
+    refToSpecVar: ''
+    UIVarTitle: server.service.gRPC.servicePort
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.loadBalancerIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.service.loadBalancerIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.servicePort
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: server.service.servicePort
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.sessionAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: None
+    refToSpecVar: ''
+    UIVarTitle: server.service.sessionAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.statefulsetReplica.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.service.statefulsetReplica.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.statefulsetReplica.replica
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '0'
+    refToSpecVar: ''
+    UIVarTitle: server.service.statefulsetReplica.replica
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: server.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.startupProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.startupProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.startupProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: server.startupProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.startupProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: server.startupProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.startupProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: server.startupProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.headless.gRPC.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.headless.gRPC.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.headless.gRPC.servicePort
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10901'
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.headless.gRPC.servicePort
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.headless.servicePort
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.headless.servicePort
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.podManagementPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: OrderedReady
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.podManagementPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.pvcDeleteOnStsDelete
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.pvcDeleteOnStsDelete
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.statefulSet.pvcDeleteOnStsScale
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.statefulSet.pvcDeleteOnStsScale
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.storagePath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: server.storagePath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.strategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Recreate
+    refToSpecVar: ''
+    UIVarTitle: server.strategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.tcpSocketProbeEnabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.tcpSocketProbeEnabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.terminationGracePeriodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '300'
+    refToSpecVar: ''
+    UIVarTitle: server.terminationGracePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: server.verticalAutoscaler.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: server.verticalAutoscaler.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: serverFiles
+    hardcodedDefaultValue: >-
+      {"alerting_rules.yml":{},"alerts":{},"recording_rules.yml":{},"rules":{},"prometheus.yml":{"rule_files":["/etc/config/recording_rules.yml","/etc/config/alerting_rules.yml","/etc/config/rules","/etc/config/alerts"],"scrape_configs":[{"job_name":"prometheus","static_configs":[{"targets":["localhost:9090"]}]},{"job_name":"kubernetes-apiservers","kubernetes_sd_configs":[{"role":"endpoints"}],"scheme":"https","tls_config":{"ca_file":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecure_skip_verify":true},"bearer_token_file":"/var/run/secrets/kubernetes.io/serviceaccount/token","relabel_configs":[{"source_labels":["__meta_kubernetes_namespace","__meta_kubernetes_service_name","__meta_kubernetes_endpoint_port_name"],"action":"keep","regex":"default;kubernetes;https"}]},{"job_name":"kubernetes-nodes","scheme":"https","tls_config":{"ca_file":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecure_skip_verify":true},"bearer_token_file":"/var/run/secrets/kubernetes.io/serviceaccount/token","kubernetes_sd_configs":[{"role":"node"}],"relabel_configs":[{"action":"labelmap","regex":"__meta_kubernetes_node_label_(.+)"},{"target_label":"__address__","replacement":"kubernetes.default.svc:443"},{"source_labels":["__meta_kubernetes_node_name"],"regex":"(.+)","target_label":"__metrics_path__","replacement":"/api/v1/nodes/$1/proxy/metrics"}]},{"job_name":"kubernetes-nodes-cadvisor","scheme":"https","tls_config":{"ca_file":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecure_skip_verify":true},"bearer_token_file":"/var/run/secrets/kubernetes.io/serviceaccount/token","kubernetes_sd_configs":[{"role":"node"}],"relabel_configs":[{"action":"labelmap","regex":"__meta_kubernetes_node_label_(.+)"},{"target_label":"__address__","replacement":"kubernetes.default.svc:443"},{"source_labels":["__meta_kubernetes_node_name"],"regex":"(.+)","target_label":"__metrics_path__","replacement":"/api/v1/nodes/$1/proxy/metrics/cadvisor"}]},{"job_name":"kubernetes-service-endpoints","honor_labels":true,"kubernetes_sd_configs":[{"role":"endpoints"}],"relabel_configs":[{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_scrape"],"action":"keep","regex":true},{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_scrape_slow"],"action":"drop","regex":true},{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_scheme"],"action":"replace","target_label":"__scheme__","regex":"(https?)"},{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_path"],"action":"replace","target_label":"__metrics_path__","regex":"(.+)"},{"source_labels":["__address__","__meta_kubernetes_service_annotation_prometheus_io_port"],"action":"replace","target_label":"__address__","regex":"(.+?)(?::\\d+)?;(\\d+)","replacement":"$1:$2"},{"action":"labelmap","regex":"__meta_kubernetes_service_annotation_prometheus_io_param_(.+)","replacement":"__param_$1"},{"action":"labelmap","regex":"__meta_kubernetes_service_label_(.+)"},{"source_labels":["__meta_kubernetes_namespace"],"action":"replace","target_label":"namespace"},{"source_labels":["__meta_kubernetes_service_name"],"action":"replace","target_label":"service"},{"source_labels":["__meta_kubernetes_pod_node_name"],"action":"replace","target_label":"node"}]},{"job_name":"kubernetes-service-endpoints-slow","honor_labels":true,"scrape_interval":"5m","scrape_timeout":"30s","kubernetes_sd_configs":[{"role":"endpoints"}],"relabel_configs":[{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_scrape_slow"],"action":"keep","regex":true},{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_scheme"],"action":"replace","target_label":"__scheme__","regex":"(https?)"},{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_path"],"action":"replace","target_label":"__metrics_path__","regex":"(.+)"},{"source_labels":["__address__","__meta_kubernetes_service_annotation_prometheus_io_port"],"action":"replace","target_label":"__address__","regex":"(.+?)(?::\\d+)?;(\\d+)","replacement":"$1:$2"},{"action":"labelmap","regex":"__meta_kubernetes_service_annotation_prometheus_io_param_(.+)","replacement":"__param_$1"},{"action":"labelmap","regex":"__meta_kubernetes_service_label_(.+)"},{"source_labels":["__meta_kubernetes_namespace"],"action":"replace","target_label":"namespace"},{"source_labels":["__meta_kubernetes_service_name"],"action":"replace","target_label":"service"},{"source_labels":["__meta_kubernetes_pod_node_name"],"action":"replace","target_label":"node"}]},{"job_name":"prometheus-pushgateway","honor_labels":true,"kubernetes_sd_configs":[{"role":"service"}],"relabel_configs":[{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_probe"],"action":"keep","regex":"pushgateway"}]},{"job_name":"kubernetes-services","honor_labels":true,"metrics_path":"/probe","params":{"module":["http_2xx"]},"kubernetes_sd_configs":[{"role":"service"}],"relabel_configs":[{"source_labels":["__meta_kubernetes_service_annotation_prometheus_io_probe"],"action":"keep","regex":true},{"source_labels":["__address__"],"target_label":"__param_target"},{"target_label":"__address__","replacement":"blackbox"},{"source_labels":["__param_target"],"target_label":"instance"},{"action":"labelmap","regex":"__meta_kubernetes_service_label_(.+)"},{"source_labels":["__meta_kubernetes_namespace"],"target_label":"namespace"},{"source_labels":["__meta_kubernetes_service_name"],"target_label":"service"}]},{"job_name":"kubernetes-pods","honor_labels":true,"kubernetes_sd_configs":[{"role":"pod"}],"relabel_configs":[{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_scrape"],"action":"keep","regex":true},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_scrape_slow"],"action":"drop","regex":true},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_scheme"],"action":"replace","regex":"(https?)","target_label":"__scheme__"},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_path"],"action":"replace","target_label":"__metrics_path__","regex":"(.+)"},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_port","__meta_kubernetes_pod_ip"],"action":"replace","regex":"(\\d+);(([A-Fa-f0-9]{1,4}::?){1,7}[A-Fa-f0-9]{1,4})","replacement":"[$2]:$1","target_label":"__address__"},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_port","__meta_kubernetes_pod_ip"],"action":"replace","regex":"(\\d+);((([0-9]+?)(\\.|$)){4})","replacement":"$2:$1","target_label":"__address__"},{"action":"labelmap","regex":"__meta_kubernetes_pod_annotation_prometheus_io_param_(.+)","replacement":"__param_$1"},{"action":"labelmap","regex":"__meta_kubernetes_pod_label_(.+)"},{"source_labels":["__meta_kubernetes_namespace"],"action":"replace","target_label":"namespace"},{"source_labels":["__meta_kubernetes_pod_name"],"action":"replace","target_label":"pod"},{"source_labels":["__meta_kubernetes_pod_phase"],"regex":"Pending|Succeeded|Failed|Completed","action":"drop"}]},{"job_name":"kubernetes-pods-slow","honor_labels":true,"scrape_interval":"5m","scrape_timeout":"30s","kubernetes_sd_configs":[{"role":"pod"}],"relabel_configs":[{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_scrape_slow"],"action":"keep","regex":true},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_scheme"],"action":"replace","regex":"(https?)","target_label":"__scheme__"},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_path"],"action":"replace","target_label":"__metrics_path__","regex":"(.+)"},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_port","__meta_kubernetes_pod_ip"],"action":"replace","regex":"(\\d+);(([A-Fa-f0-9]{1,4}::?){1,7}[A-Fa-f0-9]{1,4})","replacement":"[$2]:$1","target_label":"__address__"},{"source_labels":["__meta_kubernetes_pod_annotation_prometheus_io_port","__meta_kubernetes_pod_ip"],"action":"replace","regex":"(\\d+);((([0-9]+?)(\\.|$)){4})","replacement":"$2:$1","target_label":"__address__"},{"action":"labelmap","regex":"__meta_kubernetes_pod_annotation_prometheus_io_param_(.+)","replacement":"__param_$1"},{"action":"labelmap","regex":"__meta_kubernetes_pod_label_(.+)"},{"source_labels":["__meta_kubernetes_namespace"],"action":"replace","target_label":"namespace"},{"source_labels":["__meta_kubernetes_pod_name"],"action":"replace","target_label":"pod"},{"source_labels":["__meta_kubernetes_pod_phase"],"regex":"Pending|Succeeded|Failed|Completed","action":"drop"}]}]}}
+    refToSpecVar: ''
+    UIVarTitle: serverFiles
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varValueSrcType: src_hardcoded
+    varValueType: object
+    varApplyMethod: method_replace
+    varName: serviceAccounts
+    hardcodedDefaultValue: '{"server":{"create":true,"name":"","annotations":{}}}'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccounts
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccounts.server.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccounts.server.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccounts.server.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: serviceAccounts.server.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+routes:
+  - host: '{{ .Values.prometheus_domain }}'
+    http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              port:
+                number: 80
+              name: release-name-prometheus-server
+ServiceSrcType: Yes-HelmChart
+Ci_CD: Yes-DocekrImage
+enabledByDefault: true
+helmRepositoryName: prometheus-community
+helmRepositoryURL: https://prometheus-community.github.io/helm-charts
+helmRepositoryChartName: 'prometheus '
+helmRepositoryVersion: 25.8.0

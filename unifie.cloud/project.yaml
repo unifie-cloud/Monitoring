@@ -1,0 +1,14 @@
+hardcodedNameSpace: prometheus
+showVerionsTab: false
+showEnvVarsTab: false
+allowAutoApplyLimits: false
+name: Prometheus
+title: Prometheus
+logo: BulbOutlined
+tags:
+  - Prometheus
+  - monitoring
+description: Prometheus
+oneDeploymentPerCluster: true
+notAllowRemoveNamespace: true
+autoAddEnvVarsToDeployments: false
