@@ -85,7 +85,7 @@ rules:
   - varName: config.grafanaIniConfigMap
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: ''
+    hardcodedDefaultValue: grafana-custom
     refToSpecVar: ''
     UIVarTitle: config.grafanaIniConfigMap
     varApplyMethod: method_replace
@@ -103,13 +103,13 @@ rules:
   - varName: config.useGrafanaIniFile
     varValueType: boolean
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 'false'
+    hardcodedDefaultValue: 'true'
     refToSpecVar: ''
     UIVarTitle: config.useGrafanaIniFile
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varValueSrcType: src_hardcoded
+  - varValueSrcType: src_deployment_ui
     varValueType: array
     varApplyMethod: method_replace
     varName: dashboardsConfigMaps
@@ -117,7 +117,7 @@ rules:
     refToSpecVar: ''
     UIVarTitle: dashboardsConfigMaps
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: json
   - varValueSrcType: src_hardcoded
     varValueType: object
     varApplyMethod: method_replace
@@ -130,7 +130,7 @@ rules:
   - varName: dashboardsProvider.configMapName
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: ''
+    hardcodedDefaultValue: /opt/bitnami/grafana/dashboards
     refToSpecVar: ''
     UIVarTitle: dashboardsProvider.configMapName
     varApplyMethod: method_replace
@@ -154,6 +154,23 @@ rules:
     UIVarTitle: datasources
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: datasources.secretDefinition.apiVersion
+    varApplyMethod: method_replace
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: ''
+    UIVarInputType: ''
+  - varName: datasources.secretDefinition.datasources
+    varApplyMethod: method_replace
+    varValueType: array
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: >-
+      [{"name":"Prometheus","type":"prometheus","url":"http://release-name-prometheus-server:9090","access":"proxy","isDefault":true}]
+    refToSpecVar: ''
+    UIVarTitle: Datasources
+    UIVarInputType: json
   - varName: datasources.secretName
     varValueType: string
     varValueSrcType: src_hardcoded
@@ -1468,7 +1485,7 @@ rules:
   - varName: persistence.enabled
     varValueType: boolean
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 'true'
+    hardcodedDefaultValue: 'false'
     refToSpecVar: ''
     UIVarTitle: persistence.enabled
     varApplyMethod: method_replace
@@ -1782,30 +1799,31 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: datasources.secretDefinition.apiVersion
-    varApplyMethod: method_replace
-    varValueType: number
+  - varName: volumePermissions.image.tag
+    varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: '1'
+    hardcodedDefaultValue: 11-debian-11-r123
     refToSpecVar: ''
-    UIVarTitle: ''
-    UIVarInputType: ''
-  - varName: datasources.secretDefinition.datasources
+    UIVarTitle: volumePermissions.image.tag
     varApplyMethod: method_replace
-    varValueType: array
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: >-
-      [{"name":"Prometheus","type":"prometheus","url":"http://release-name-prometheus-server:9090","access":"proxy","isDefault":true}]
-    refToSpecVar: ''
-    UIVarTitle: Datasources
-    UIVarInputType: json
+    UIVarValidationRules: []
+    UIVarInputType: string
 helmRepositoryName: bitnami
 helmRepositoryURL: https://charts.bitnami.com/bitnami
 helmRepositoryChartName: grafana
 helmChartName: grafana
 helmRepositoryVersion: 8.4.5
 postProcessingRules:
-  - path: '["spec"]["strategy"]'
+  - path: '["spec"]["template"]["metadata"]["annotations"]["checksum/secret"]'
+    action: remove
+    mainKind: Deployment
+    mainMetadataName: release-name-grafana
+  - path: '["spec"]["template"]["metadata"]["annotations"]["checksum/config"]'
+    action: remove
+    mainKind: Deployment
+    mainMetadataName: release-name-grafana
+  - path: >-
+      ["spec"]["template"]["metadata"]["annotations"]["checksum/dashboard-provider"]
     action: remove
     mainKind: Deployment
     mainMetadataName: release-name-grafana
@@ -1813,13 +1831,13 @@ routes:
   - host: '{{ .deployment.domain }}'
     http:
       paths:
-        - pathType: Prefix
-          path: /
+        - path: /
+          pathType: Prefix
           backend:
             service:
+              name: grafana-ui
               port:
                 number: 3000
-              name: release-name-grafana
 UIshowRequestsConfig: false
 enabledByDefault: true
 ServiceSrcType: Yes-HelmChart

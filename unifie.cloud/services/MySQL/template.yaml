@@ -1,0 +1,76 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    serviceType: mysql
+  name: mysql
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: mysql 
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  custom.cnf: |
+    [mysqld]
+    default_authentication_plugin=mysql_native_password
+    skip-host-cache
+    skip-name-resolve
+    federated
+    sql_mode=
+    max_connections=10000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  updateStrategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mysql
+        ui-name: mysql
+    spec:
+      containers:
+        - image: mysql:8.0
+          name: mysql
+          resources:
+            requests:
+              ephemeral-storage: 200Mi
+              memory: 25Mi
+              cpu: 10m
+            limits:
+              ephemeral-storage: 4Gi
+              memory: 1024Mi
+              cpu: 1000m
+          env:
+            - name: MYSQL_DATABASE
+              value: "grafana"
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: ROOT_PASSWORD
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-custom-config
+              mountPath: /etc/mysql/conf.d
+      volumes:
+        - name: mysql-custom-config
+          configMap:
+            name: mysql-configmap
+  replicas: 1

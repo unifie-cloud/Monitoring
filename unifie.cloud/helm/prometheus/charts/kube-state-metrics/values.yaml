@@ -37,10 +37,7 @@ autosharding:
 
 replicas: 1
 
-# Change the deployment strategy when autosharding is disabled.
-# ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
-# The default is "RollingUpdate" as per Kubernetes defaults.
-# During a release, 'RollingUpdate' can lead to two running instances for a short period of time while 'Recreate' can create a small gap in data.
+# Change the deployment strategy when autosharding is disabled
 # updateStrategy: Recreate
 
 # Number of old history to retain to allow rollback
@@ -111,12 +108,7 @@ kubeRBACProxy:
   ## Specify security settings for a Container
   ## Allows overrides and additional options compared to (Pod) securityContext
   ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
-  containerSecurityContext:
-    readOnlyRootFilesystem: true
-    allowPrivilegeEscalation: false
-    capabilities:
-      drop:
-      - ALL
+  containerSecurityContext: {}
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -253,7 +245,6 @@ securityContext:
 ## Allows overrides and additional options compared to (Pod) securityContext
 ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
 containerSecurityContext:
-  readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
   capabilities:
     drop:
@@ -463,27 +454,3 @@ containers: []
 initContainers: []
   # - name: crd-sidecar
   #   image: kiwigrid/k8s-sidecar:latest
-
-## Liveness probe
-##
-livenessProbe:
-  failureThreshold: 3
-  httpGet:
-    httpHeaders: []
-    scheme: http
-  initialDelaySeconds: 5
-  periodSeconds: 10
-  successThreshold: 1
-  timeoutSeconds: 5
-
-## Readiness probe
-##
-readinessProbe:
-  failureThreshold: 3
-  httpGet:
-    httpHeaders: []
-    scheme: http
-  initialDelaySeconds: 5
-  periodSeconds: 10
-  successThreshold: 1
-  timeoutSeconds: 5

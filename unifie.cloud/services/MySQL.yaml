@@ -1,0 +1,10 @@
+name: MySQL
+rules:
+  - varName: DB_ROOT_PASSWORD
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: root
+    refToSpecVar: ''
+    UIVarTitle: Password for database
+    UIVarInputType: password
