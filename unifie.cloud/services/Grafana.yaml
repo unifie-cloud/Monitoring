@@ -167,7 +167,7 @@ rules:
     varValueType: array
     varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: >-
-      [{"name":"Prometheus","type":"prometheus","url":"http://release-name-prometheus-server:9090","access":"proxy","isDefault":true}]
+      [{"name":"Prometheus","type":"prometheus","url":"http://release-name-prometheus-server:80","access":"proxy","isDefault":true}]
     refToSpecVar: ''
     UIVarTitle: Datasources
     UIVarInputType: json
@@ -642,10 +642,13 @@ rules:
     UIVarInputType: string
   - varName: grafana.updateStrategy.type
     varValueType: string
-    varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: RollingUpdate
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: Recreate
     refToSpecVar: ''
-    UIVarTitle: grafana.updateStrategy.type
+    UIVarTitle: >-
+      Set up update strategy ( Set to Recreate if you use persistent volume that
+      cannot be mounted by more than one pods to make sure the pods is destroyed
+      first. )
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
@@ -1484,13 +1487,13 @@ rules:
     UIVarTitle: Storage access mode
   - varName: persistence.enabled
     varValueType: boolean
-    varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 'false'
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: 'true'
     refToSpecVar: ''
-    UIVarTitle: persistence.enabled
+    UIVarTitle: Persistence
     varApplyMethod: method_replace
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: boolean
   - varName: persistence.existingClaim
     varValueType: string
     varValueSrcType: src_hardcoded
@@ -1502,10 +1505,10 @@ rules:
     UIVarInputType: string
   - varName: persistence.size
     varValueType: string
-    varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 10Gi
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: 2Gi
     refToSpecVar: ''
-    UIVarTitle: persistence.size
+    UIVarTitle: Disk size
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
@@ -1808,6 +1811,14 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: grafana.initContainers
+    varApplyMethod: method_replace
+    varValueType: array
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: Init containers
+    UIVarInputType: json
 helmRepositoryName: bitnami
 helmRepositoryURL: https://charts.bitnami.com/bitnami
 helmRepositoryChartName: grafana
