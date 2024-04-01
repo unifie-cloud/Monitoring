@@ -965,7 +965,7 @@ rules:
   - varName: server.statefulSet.enabled
     varValueType: boolean
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 'false'
+    hardcodedDefaultValue: 'true'
     refToSpecVar: ''
     UIVarTitle: server.statefulSet.enabled
     varApplyMethod: method_replace
