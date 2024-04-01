@@ -23,8 +23,8 @@ metadata:
 data:
   grafana.ini: |-
     [database]
-    type=mysql
-    host=mysql
-    name=grafana
-    user=root
-    password=root
+    #type=mysql
+    #host=mysql
+    #name=grafana
+    #user=root
+    #password=root
