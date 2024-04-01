@@ -109,7 +109,7 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varValueSrcType: src_deployment_ui
+  - varValueSrcType: src_hardcoded
     varValueType: array
     varApplyMethod: method_replace
     varName: dashboardsConfigMaps
@@ -130,7 +130,7 @@ rules:
   - varName: dashboardsProvider.configMapName
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: /opt/bitnami/grafana/dashboards
+    hardcodedDefaultValue: ''
     refToSpecVar: ''
     UIVarTitle: dashboardsProvider.configMapName
     varApplyMethod: method_replace
@@ -139,7 +139,7 @@ rules:
   - varName: dashboardsProvider.enabled
     varValueType: boolean
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 'false'
+    hardcodedDefaultValue: 'true'
     refToSpecVar: ''
     UIVarTitle: dashboardsProvider.enabled
     varApplyMethod: method_replace
@@ -316,6 +316,14 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: grafana.initContainers
+    varApplyMethod: method_replace
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: Init containers
+    UIVarInputType: json
   - varName: grafana.livenessProbe.enabled
     varValueType: boolean
     varValueSrcType: src_hardcoded
@@ -642,8 +650,8 @@ rules:
     UIVarInputType: string
   - varName: grafana.updateStrategy.type
     varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: Recreate
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RollingUpdate
     refToSpecVar: ''
     UIVarTitle: >-
       Set up update strategy ( Set to Recreate if you use persistent volume that
@@ -683,7 +691,7 @@ rules:
   - varName: image.registry
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: docker.io
+    hardcodedDefaultValue: public.ecr.aws
     refToSpecVar: ''
     UIVarTitle: image.registry
     varApplyMethod: method_replace
@@ -692,7 +700,7 @@ rules:
   - varName: image.repository
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: bitnami/grafana
+    hardcodedDefaultValue: g4a0y2u8/grafana
     refToSpecVar: ''
     UIVarTitle: image.repository
     varApplyMethod: method_replace
@@ -701,7 +709,7 @@ rules:
   - varName: image.tag
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: 9.5.3-debian-11-r0
+    hardcodedDefaultValue: grafana-16964
     refToSpecVar: ''
     UIVarTitle: image.tag
     varApplyMethod: method_replace
@@ -1811,14 +1819,6 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: grafana.initContainers
-    varApplyMethod: method_replace
-    varValueType: array
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: '[]'
-    refToSpecVar: ''
-    UIVarTitle: Init containers
-    UIVarInputType: json
 helmRepositoryName: bitnami
 helmRepositoryURL: https://charts.bitnami.com/bitnami
 helmRepositoryChartName: grafana
