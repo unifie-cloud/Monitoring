@@ -709,7 +709,7 @@ rules:
   - varName: image.tag
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: grafana-16964
+    hardcodedDefaultValue: grafana-latest
     refToSpecVar: ''
     UIVarTitle: image.tag
     varApplyMethod: method_replace

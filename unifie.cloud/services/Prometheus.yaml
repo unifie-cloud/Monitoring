@@ -513,31 +513,31 @@ rules:
     UIVarInputType: string
   - varName: server.livenessProbeFailureThreshold
     varValueType: number
-    varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: '3'
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '300'
     refToSpecVar: ''
-    UIVarTitle: server.livenessProbeFailureThreshold
+    UIVarTitle: Server liveness probe FailureThreshold
     varApplyMethod: method_replace
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: number
   - varName: server.livenessProbeInitialDelay
     varValueType: number
-    varValueSrcType: src_hardcoded
+    varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: '30'
     refToSpecVar: ''
-    UIVarTitle: server.livenessProbeInitialDelay
+    UIVarTitle: Server liveness probe InitialDelay
     varApplyMethod: method_replace
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: number
   - varName: server.livenessProbePeriodSeconds
     varValueType: number
-    varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: '15'
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '20'
     refToSpecVar: ''
-    UIVarTitle: server.livenessProbePeriodSeconds
+    UIVarTitle: Server liveness probe PeriodSeconds
     varApplyMethod: method_replace
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: number
   - varName: server.livenessProbeSuccessThreshold
     varValueType: number
     varValueSrcType: src_hardcoded
@@ -1107,6 +1107,14 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: server.extraArgs
+    varApplyMethod: method_replace
+    varValueType: object
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '{"enable-feature":"memory-snapshot-on-shutdown"}'
+    refToSpecVar: ''
+    UIVarTitle: Additional Prometheus server container arguments
+    UIVarInputType: json
 routes:
   - host: '{{ .Values.prometheus_domain }}'
     http:

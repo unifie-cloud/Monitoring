@@ -159,7 +159,7 @@ spec:
               value: "AIzaSyD29bGxmHAVEOBYtgd8sYM2gM2ekfxQX4U" # The GCP Pricing API requires a key. This is supplied just for evaluation.
             - name: CLUSTER_ID
               value: "{{ .Values.CLUSTER_ID }}" # Default cluster ID to use if cluster_id is not set in Prometheus metrics.
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
         - image: quay.io/kubecost1/opencost-ui:latest
           name: opencost-ui 
           ports:
@@ -171,7 +171,7 @@ spec:
             limits:
               cpu: "999m"
               memory: "1G"
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
 ---
 
 # Expose the cost model with a service
