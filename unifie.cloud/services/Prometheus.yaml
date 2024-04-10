@@ -409,6 +409,14 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: server.extraArgs
+    varApplyMethod: method_replace
+    varValueType: object
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '{"enable-feature":"memory-snapshot-on-shutdown"}'
+    refToSpecVar: ''
+    UIVarTitle: Additional Prometheus server container arguments
+    UIVarInputType: json
   - varName: server.extraFlags.0
     varValueType: string
     varValueSrcType: src_hardcoded
@@ -762,9 +770,9 @@ rules:
     UIVarInputType: string
   - varName: server.replicaCount
     varValueType: number
-    varValueSrcType: src_hardcoded
+    varValueSrcType: src_deployment_var
     hardcodedDefaultValue: '1'
-    refToSpecVar: ''
+    refToSpecVar: deployment.services.Prometheus.replicas
     UIVarTitle: server.replicaCount
     varApplyMethod: method_replace
     UIVarValidationRules: []
@@ -1107,14 +1115,6 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: server.extraArgs
-    varApplyMethod: method_replace
-    varValueType: object
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: '{"enable-feature":"memory-snapshot-on-shutdown"}'
-    refToSpecVar: ''
-    UIVarTitle: Additional Prometheus server container arguments
-    UIVarInputType: json
 routes:
   - host: '{{ .Values.prometheus_domain }}'
     http:
