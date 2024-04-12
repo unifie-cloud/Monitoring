@@ -1838,6 +1838,10 @@ postProcessingRules:
     action: remove
     mainKind: Deployment
     mainMetadataName: release-name-grafana
+  - path: Service["release-name-grafana"]
+    action: removeFullRecord
+    mainKind: Service
+    mainMetadataName: release-name-grafana
 routes:
   - host: '{{ .deployment.domain }}'
     http:
