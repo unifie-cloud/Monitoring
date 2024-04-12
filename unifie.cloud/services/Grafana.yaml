@@ -1496,7 +1496,7 @@ rules:
   - varName: persistence.enabled
     varValueType: boolean
     varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: 'true'
+    hardcodedDefaultValue: 'false'
     refToSpecVar: ''
     UIVarTitle: Persistence
     varApplyMethod: method_replace
@@ -1524,7 +1524,7 @@ rules:
     varValueType: string
     UIVarValidationRules: []
     UIVarInputType: text
-    hardcodedDefaultValue: efs-reclaim-delete
+    hardcodedDefaultValue: ''
     varName: persistence.storageClass
     UIVarTitle: Storage class
   - varValueSrcType: src_hardcoded
