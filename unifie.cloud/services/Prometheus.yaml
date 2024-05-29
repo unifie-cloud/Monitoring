@@ -1071,13 +1071,13 @@ rules:
     UIVarInputType: string
   - varName: server.verticalAutoscaler.enabled
     varValueType: boolean
-    varValueSrcType: src_hardcoded
+    varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: 'false'
     refToSpecVar: ''
     UIVarTitle: server.verticalAutoscaler.enabled
     varApplyMethod: method_replace
     UIVarValidationRules: []
-    UIVarInputType: string
+    UIVarInputType: boolean
   - varValueSrcType: src_hardcoded
     varValueType: object
     varApplyMethod: method_replace
